@@ -27,8 +27,11 @@ if (IN_BROWSER || IN_NW || IN_EL) {
 function testDownloadLink_create(test, pass, miss) {
 
     if (DownloadLink.ready) {
+        var data = new Uint8Array([ 1, 2, 3 ]);
+        var blob = new Blob([ data ], { type: "application/octet-stream" });
         var link = new DownloadLink();
-        link.create(new Uint8Array([1,2,3]), { fileName: "automatic.download" });
+
+        link.create(blob, { fileName: "automatic.download" });
 
         test.done(pass());
     } else {
