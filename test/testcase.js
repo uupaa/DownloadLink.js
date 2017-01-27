@@ -28,7 +28,7 @@ function testDownloadLink_create(test, pass, miss) {
 
     if (DownloadLink.ready) {
         var link = new DownloadLink();
-        link.create(new Uint8Array([1,2,3]), { fileName: "automatic.download" });
+        link.create([new Uint8Array([1,2,3])], { fileName: "automatic.download" });
 
         test.done(pass());
     } else {
